@@ -21,5 +21,5 @@ imageB = cv2.imread(args["second"])
 # images, ensuring that the difference image is returned
 (score, diff) = metrics.structural_similarity(imageA, imageB, full=True, multichannel=True)
 #diff = (diff * 255).astype("uint8")
-print("SSIM: {}".format(score))
+print("result: {}".format(score))
 
