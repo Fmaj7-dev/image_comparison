@@ -1,4 +1,12 @@
 from PIL import Image
+import math
+
+def are_equal(pix_a, pix_b, threshold):
+    #if pix_a[x, y] == pix_b[x, y]:
+    #    return True 
+    if abs(pix_a[0] - pix_b[0]) < threshold and abs(pix_a[1] - pix_b[1]) < threshold and abs(pix_a[2] - pix_b[2]) < threshold:
+        return True
+    return False
 
 im_a = Image.open('goog90.jpg')
 pix_a = im_a.load()
@@ -13,7 +21,7 @@ pix_out = im_out.load()
 
 for x in range(width):
     for y in range(height):
-        if pix_a[x, y][0] == pix_b[x, y][0] and pix_a[x, y][1] == pix_b[x, y][1] and pix_a[x, y][2] == pix_b[x, y][2]:
+        if are_equal(pix_a[x,y], pix_b[x,y], 10):
             pix_out[x, y] = pix_a[x, y]
         else:
             pix_out[x,y] = (255,0,255)
